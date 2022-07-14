@@ -3,7 +3,7 @@ name: Juejin Auto Sign IN
 on:
   workflow_dispatch:
   schedule:
-    - cron: '00 8 * * *'
+    - cron: '00 0 * * *'
 env:
   AID: ${{ secrets.aid }}
   UUID: ${{ secrets.uuid }}
