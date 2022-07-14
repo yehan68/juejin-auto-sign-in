@@ -1,0 +1,27 @@
+name: Juejin Auto Sign IN
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '00 8 * * *'
+env:
+  AID: ${{ secrets.aid }}
+  UUID: ${{ secrets.uuid }}
+  SIGNATURE: ${{ secrets._signature }}
+  COOKIE: ${{ secrets.cookie }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.x']
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      
+      with:
+        python-version: ${{ matrix.python-version }}
+    - run: pip3 install requests
+    - run: python main.py
