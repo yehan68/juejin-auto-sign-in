@@ -37,8 +37,6 @@ if checkResponse.status_code == 200:
   checkResult = checkResponse.json()
   if checkResult['err_no']:
     print("签到失败: " + checkResult['err_msg'])
-    print('本次签到领取' + str(checkResult['data']['incr_point']) + '钻石')
-    print('当前累计为' + str(checkResult['data']['sum_point']) + '钻石')
   else:
     print('本次签到领取' + str(checkResult['data']['incr_point']) + '钻石')
     print('当前累计为' + str(checkResult['data']['sum_point']) + '钻石')
